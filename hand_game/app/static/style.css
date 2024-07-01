@@ -41,6 +41,12 @@ body {
     align-items: center;
 }
 
+.header{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
 /* .header h2{
     color:#5e43f3;
     text-align: center;
@@ -51,7 +57,7 @@ body {
 .header h2{
     color:#5e43f3;
     text-align: center;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     font-size: 50px;
     text-transform: uppercase;
     background-image: linear-gradient(
@@ -71,7 +77,11 @@ body {
     animation: textclip 2s linear infinite;
     display: inline-block;
 }
-
+.header img{
+  border-radius: 50%;
+  width: 5%;
+  height: 5%;
+}
 @keyframes textclip {
   to {
     background-position: 200% center;
@@ -144,6 +154,9 @@ body {
 
 }
 
+.input_field{
+  color: white;
+}
 
 
 /* .register .in_choose #login{
@@ -386,7 +399,12 @@ body {
     text-align: center;
 }
 
-.submit_register, #submit_login{
+.user_icon{
+
+}
+
+.submit_register, .submit_login{
+  color: white;
   margin: 13px 160px;
   border: none;
   border-radius: 17px;
@@ -407,12 +425,18 @@ body {
 
 .register_form , .login_form{
   display: flex;
-  margin-top: 45px;
+  margin-top: 20px;
+}
+
+.profile-section{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 .profile_image{
   margin-right: 20px;
 }
-profile-pic {
+.profile-pic {
   width: 200px;
   max-height: 200px;
   display: inline-block;
@@ -436,8 +460,8 @@ img {
   background-color: #7d75a7;
   border-radius: 50%;
   position: absolute;
-  top: 86%;
-  right: 59%;
+  top:58%;
+  right: 55%;
   width: 45px;
   height: 45px;
   color: #2f2b3a;
@@ -468,16 +492,16 @@ transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
 }
 
 .form_field input[type=email]{
-  margin-left: 90px;
+  margin-left: 110px;
 }
 .form_field input[type=text]{
-  margin-left: 60px;
+  margin-left: 80px;
 }
 .form_field #register_password[type=password],.form_field #login_password[type=password]{
-  margin-left: 65px;
+  margin-left: 85px;
 }
-.form_field #register_confirm_password[type=password]{
-  margin-left: 5px;
+.form_field #confirm_password_input[type=password]{
+  margin-left: 23px;
 }
 
 /* .upload-button {

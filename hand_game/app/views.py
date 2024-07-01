@@ -114,7 +114,7 @@ class Register_User(APIView):
         except Exception as e:
             return Response({'status':status.HTTP_500_INTERNAL_SERVER_ERROR,'response':e},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
+#Create login funtion
 
 #user2 for computer
 #user1 for user
@@ -191,7 +191,6 @@ class game_play(APIView):
         except Exception as e:
             return Response({"status":status.HTTP_500_INTERNAL_SERVER_ERROR,"response":str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
 class create_room(APIView):
     @swagger_auto_schema(
         operation_description="Play to used for main game play",
@@ -255,7 +254,6 @@ class delete_game(APIView):
                 return Response({"status":status.HTTP_404_NOT_FOUND,"response":f"Room Not founded by number {input_room_number}","room_number":input_room_number})
         except Exception as e:
             return Response({"status":status.HTTP_500_INTERNAL_SERVER_ERROR,"error":str(e)},status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
 class reset_game(APIView):
     @swagger_auto_schema(
