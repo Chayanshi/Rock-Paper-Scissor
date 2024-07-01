@@ -1,0 +1,78 @@
+{% extends "./base.html" %}
+
+{% block main %}
+<div class="container">
+    <div class="scores_display">
+        <header class="score_header">
+            <div class="score">
+                <div class="score__title">Your Score</div>
+                <div class="score__number">{{ user1_score }}</div>
+            </div>
+        </header>
+        <header class="score_header">
+            <div class="score">
+                <div class="score__title">Computer Score</div>
+                <div class="score__number">{{ user2_score }}</div>
+            </div>
+        </header>
+        <header class="score_header">
+            <div class="score">
+                <div class="score__title">Tie Score</div>
+                <div class="score__number">{{ tie_score }}</div>
+            </div>
+        </header>
+        <header class="score_header">
+            <div class="score">
+                <div class="score__title">Moves Left</div>
+                <div class="score__number">{{ move_left }}</div>
+            </div>
+        </header>
+    </div>
+    
+    <div class="winner">
+        {% if result == "user1" %}  
+            <h3>You Win</h3>
+        {% elif result == "tie" %}
+            <h3>Tie</h3>
+        {% else %}
+            <h3>Computer Win</h3>
+        {% endif %}
+    </div>
+
+    <div class="play_again">
+        <button class="play_again_button" onclick="play()">Play Again</button>
+    </div>
+
+    
+    <div class="final_choosen">
+        <button class="choice-btn" data-choice="{{ user1_choose }}">
+            <h2>You</h2>
+            <div class="{% if result == 'user1' %}result_winner{% endif %}">
+                <div class="choice {{ user1_choose }}">
+                    <img src="../static/images/icon-{{ user1_choose }}.svg" alt="{{ user1_choose }}" />
+                </div>
+            </div>
+        </button>
+
+        <button class="choice-btn" data-choice="{{ user2_choose }}">
+            <h2>Computer</h2>
+            <div class = "{% if result == 'user2' %}result_winner{% endif %}">
+                <div class="choice {{ user2_choose }}">
+                <img src="../static/images/icon-{{ user2_choose }}.svg" alt="{{ user1user2_choose_choose }}" />
+                </div>
+            </div>
+        </button>
+    </div> 
+    <div class="endgame">
+        <button class="quit">Quit</button>
+    </div>
+</div>   
+{% endblock %}
+
+{% block jsscript %}
+<script>
+    function play() {
+      window.location.href = `{% url 'company_play' %}`;
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "./base.html" %}
+
+{% block main %}
+<div class="container">
+    <div class="scores_display">
+        <header class="score_header">
+            <div class="score">
+              <div class="score__title">Your Score</div>
+              <div class="score__number">0</div>
+            </div>
+          </header>
+          <header class="score_header">
+              <div class="score">
+                  <div class="score__title">Computer Score</div>
+                  <div class="score__number">0</div>
+                </div>
+          </header>
+    </div>
+    
+    <section class="game">
+      <button class="choice-btn" data-choice="paper" onclick="user_choosen('paper')">
+        <div class="choice paper">
+          <img src="../static/images/icon-paper.svg" alt="Paper" />
+        </div>
+      </button>
+      <button class="choice-btn" data-choice="scissor" onclick="user_choosen('scissor')">
+        <div class="choice scissor">
+          <img src="../static/images/icon-scissor.svg" alt="Scissor" />
+        </div>
+      </button>
+      <button class="choice-btn" data-choice="rock" onclick="user_choosen('rock')">
+        <div class="choice rock">
+          <img src="../static/images/icon-rock.svg" alt="Rock" />
+        </div>
+      </button>
+    </section>
+</div>   
+{% endblock %}
+
+{% block jsscript %}
+<script>
+  function user_choosen(choice) {
+    window.location.href = '/final_play/' + choice;
+  }
+</script>
+{% endblock %}

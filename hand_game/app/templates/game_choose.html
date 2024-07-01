@@ -1,0 +1,13 @@
+{% extends "./base.html" %}
+
+{% block main %}
+
+<div class="choose_box">
+    <h4 class="choose_heading">Play with</h4>
+    <div class="choose_button_main">
+        <a href="{% url 'company_play' %}"><button class="choose_button1">Computer</button></a>
+        <button class="choose_button2" disabled>Friend</button>
+    </div>
+</div>
+
+{% endblock %}

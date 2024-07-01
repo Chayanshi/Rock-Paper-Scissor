@@ -1,0 +1,152 @@
+{% extends "./base.html" %}
+
+{% block main %}
+<div class="main-content">
+    <a href="{% url 'game_choose' %}"><button class="play_button"></button></a>
+</div>
+<div class="choose_box">
+    <div class="register">
+        <h4 class="choose_heading" style="text-align: center;">Register or Login</h4>
+        <form class="in_choose">
+            <div class="register_radio">
+                <input type="radio" id="register" name="register_user" value="register" onclick="display_form('register')">
+                <label for="register">Register</label><br>
+            </div>
+            <div class="login_radio">
+                <input type="radio" id="login" name="login_user" value="login" onclick="display_form('login')" checked>
+                <label for="login">Login</label><br>
+            </div>
+
+        </form>
+            
+        <!-- Register form -->
+        <div class="register_form" id="register_form" style="display: none;">
+            <div class="profile_image">
+                <div class="small-12 medium-2 large-2 columns">
+                    <div class="circle">
+                    <img class="profile-pic" src="../static/images/profile_pic.jpeg">
+                    </div>
+                    <div class="p-image">
+                        <i class="fa fa-camera"></i>
+                        <input class="file-upload" type="file" accept="image/*"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form_field">
+                <div class="email_field">
+                    <label for="email" class="form_label">Email </label>
+                    <input type="email" name="email" id="register_email" placeholder="Enter your email id" class="input_box">
+                </div>
+                <div class="email_field">
+                    <label for="username" class="form_label">Username </label>
+                    <input type="text" name="username" id="username_input" placeholder="Enter your username" class="input_box">
+                </div>
+                <div class="email_field">
+
+                    <label for="password" class="form_label">Password </label>
+                    <input type="password" name="password" id="register_password" placeholder="Enter your password" class="input_box">
+                </div>
+                <div class="email_field">
+                    <label for="confirm_password" class="form_label">Confirm Password </label>
+                    <input type="password" name="register_confirm_password" id="confirm_password_input" placeholder="Enter your confirm password" class="input_box">
+                </div>
+            </div>
+                
+            <a href="#"><button class="submit_register" >Register</button></a>
+        </div>
+
+        <!-- login form -->
+        <div class="login_form" id="login_form" style="display: block;">
+            <div class="form_field">
+                <div class="email_field">
+                    <label for="email" class="form_label">Email </label>
+                    <input type="email" name="email" id="login_email" placeholder="Enter your email id" class="input_box">
+                </div>
+                <div class="email_field">
+                    <label for="password" class="form_label">Password </label>
+                    <input type="password" name="password" id="login_password" placeholder="Enter your password" class="input_box">
+                </div>
+            </div>
+                
+            <a href="#"><button class="submit_login" >Login</button></a>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block jsscript %}
+<script>
+//     $(document).ready(function() {
+//     var file_upload = $('.file-upload');
+//     var profile_pic = $('.profile-pic');
+        
+    
+//     var readURL = function(input) {
+//         if (input.files && input.files[0]) {
+//             var reader = new FileReader();
+
+//             reader.onload = function (e) {
+//                 $('.profile-pic').attr('src', e.target.result);
+//             }
+    
+//             reader.readAsDataURL(input.files[0]);
+//         }
+//     }
+    
+
+//     file_upload.on('change', function(){
+//         readURL(this);
+//     });
+    
+//     document.getElementById(".upload-button").on('click', function() {
+//         file_upload.click();
+//     });
+// });
+
+
+function display_form(form_type){
+    var register_form = document.getElementById("register_form")
+    var login_form = document.getElementById("login_form")
+
+    if (form_type == "register" || register_form.checked == true){
+        if (login_form.style.display == "block"){login_form.style.display = "none"}
+        register_form.style.display = "block";
+    }
+    
+    if (form_type == "login" || login_form.checked == true){
+        if (register_form.style.display == "block"){register_form.style.display = "none"}
+        login_form.style.display = "block";
+    }
+}
+
+function updateRadioButtons() {
+    const registerRadio = document.getElementById('register');
+    const loginRadio = document.getElementById('login');
+
+    registerRadio.addEventListener('click', function () {
+        if (this.checked) {
+            console.log('Register radio is checked');
+        }else{
+            registerRadio.setAttribute("checked","checked");
+            loginRadio.removeAttribute("checked","checked")
+            console.log('Register radio set as checked');
+        }
+    });
+
+    loginRadio.addEventListener('click', function () {
+        if (this.checked) {
+            console.log('Login radio is checked');
+        }else{
+            loginRadio.set("checked","checked");
+            registerRadio.removeAttribute("checked","checked");
+            console.log('login radio set as checked');
+        }
+    });
+}
+
+window.onload = function() {
+    updateRadioButtons();
+}
+</script>
+{% endblock %}
